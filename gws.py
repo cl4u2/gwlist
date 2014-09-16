@@ -25,5 +25,13 @@ for f in tree.xpath('/pdml/packet/proto[@name="olsr"]/field[@name="olsr.message"
             if propvalue == "0.0.0.0":
                 originatorset.add(o)
 
-print originatorset
+originatorlist = list(originatorset)
+
+for o in originatorlist:
+    print "echo '----->' %s" % o
+    if o.split('.')[0] == "172":
+        oregex = "\.".join(o.split('.')) + "\\b.*\|"
+    else:
+        oregex = "\.".join(o.split('.')[:3]) + "\..*/.*\|"
+    print "egrep '%s' gestioneindirizzi.txt" % oregex
 
