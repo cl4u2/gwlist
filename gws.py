@@ -1,6 +1,13 @@
 from lxml import etree
 import binascii
-tree = etree.parse('gwlist.xml')
+import sys
+
+if len(sys.argv) < 2:
+    print "Usage: %s <pdml.xml>" % sys.argv[0]
+    sys.exit(1)
+
+pdmlfile = sys.argv[1]
+tree = etree.parse(pdmlfile)
 
 originatorset = set()
 
