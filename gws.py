@@ -1,14 +1,6 @@
-#from xml.sax import *
-
 from lxml import etree
 import binascii
 tree = etree.parse('gwlist.xml')
-
-#data = [binascii.unhexlify(e.get("value")) for e in tree.xpath('/pdml/packet/proto[@name="olsr"]/field[@name="olsr.packet_seq_num"]')]
-
-#for e in tree.xpath('/pdml/packet/proto[@name="olsr"]/field[@name="olsr.packet_seq_num"]'):
-
-#for e in tree.xpath('/pdml/packet/proto[@name="olsr"]/field[@name="olsr.message"]/field[@name="olsr.message_type" and @value="04"]'):
 
 originatorset = set()
 
