@@ -1,0 +1,5 @@
+Usage Example:
+
+tshark -i wlan0 -f "ip and udp port 698" -T pdml > olsrtraffic.xml
+curl 'http://wiki.ninux.org/GestioneIndirizzi?action=raw' > gestioneindirizzi.txt
+python2.7 gws.py olsrtraffic.xml | bash
