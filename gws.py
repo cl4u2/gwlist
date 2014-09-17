@@ -29,9 +29,11 @@ originatorlist = list(originatorset)
 
 for o in originatorlist:
     print "echo '----->' %s" % o
-    if o.split('.')[0] == "172":
+    if o.split('.')[0] == "172" or ".".join(o.split('.')[:3]) == "10.0.1":
+        # special subnets
         oregex = "\.".join(o.split('.')) + "\\b.*\|"
     else:
+        # other subnets, assume /24
         oregex = "\.".join(o.split('.')[:3]) + "\..*/.*\|"
     print "egrep '%s' gestioneindirizzi.txt" % oregex
 
